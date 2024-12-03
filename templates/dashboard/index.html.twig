@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Apointment Journal</h1>
+    <ul>
+        <li><a href="{{ path('add_client') }}">Add Client and Patient</a></li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <li><a href="{{ path('add_examination') }}">Add Examination</a></li>
+            <li><a href="{{ path('add_drug') }}">Add Drug</a></li>
+        {% endif %}
+        <li><a href="{{ path('add_appointment') }}">Add Appointment</a></li>
+    </ul>
+{% endblock %}
