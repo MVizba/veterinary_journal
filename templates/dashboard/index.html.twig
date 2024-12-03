@@ -1,13 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Appointment Journal</h1>
-    <ul>
-        <li><a href="{{ path('app_client_new') }}">Add Client</a></li>
-        <li> <a href="{{ path('app_patient_new') }}">Add Patient</a></li>
-        {% if is_granted('ROLE_ADMIN') %}
-            <li><a href="{{ path('add_examination') }}">Add Examination</a></li>
-            <li><a href="{{ path('add_drug') }}">Add Drug</a></li>
-        {% endif %}
-    </ul>
+    <header class="bg-light py-3">
+        <div class="container text-center">
+            <h1 class="mb-0">Appointment Journal</h1>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_client_new') }}">Add Client</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_patient_new') }}">Add Patient</a>
+                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('add_examination') }}">Add Examination</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('add_drug') }}">Add Drug</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
 {% endblock %}
