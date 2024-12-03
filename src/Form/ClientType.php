@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Client;
-use App\Entity\User;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,12 +16,7 @@ class ClientType extends AbstractType
             ->add('lastName')
             ->add('address')
             ->add('phone')
-            ->add('email')
-            ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
-        ;
+            ->add('email');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

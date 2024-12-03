@@ -1,0 +1,29 @@
+{{ form_start(form) }}
+<div class="row mb-3">
+    <div class="col-md-4">
+        {{ form_label(form.name, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="col-md-4">
+        {{ form_label(form.lastName, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="col-md-4">
+        {{ form_label(form.address, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        {{ form_label(form.phone, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_label(form.email, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<button class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

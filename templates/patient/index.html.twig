@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient Index{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Patient List</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+        <tr>
+            <th>Owner</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Marking Number</th>
+            <th>Passport Number</th>
+            <th>Appearance</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for patient in patients %}
+            <tr>
+                <td>
+                    {% if patient.client %}
+                        {{ patient.client.name }} {{ patient.client.lastName }}
+                    {% else %}
+                        <em>No owner assigned</em>
+                    {% endif %}
+                </td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.type }}</td>
+                <td>{{ patient.gender }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.markingNumber }}</td>
+                <td>{{ patient.passportNumber }}</td>
+                <td>{{ patient.appearance }}</td>
+                <td>
+                    <a href="{{ path('app_patient_show', {'id': patient.id}) }}" class="btn btn-info btn-sm">Show</a>
+                    <a href="{{ path('app_patient_edit', {'id': patient.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9" class="text-center">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_patient_new') }}" class="btn btn-success">Create New Patient</a>
+{% endblock %}

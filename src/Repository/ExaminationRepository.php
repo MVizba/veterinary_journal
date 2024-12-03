@@ -17,7 +17,7 @@ class ExaminationRepository extends ServiceEntityRepository
     }
 
     //    /**
-    //     * @return Examination[] Returns an array of Examination objects
+    //     * @return examination[] Returns an array of examination objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class ExaminationRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Examination
+    //    public function findOneBySomeField($value): ?examination
     //    {
     //        return $this->createQueryBuilder('e')
     //            ->andWhere('e.exampleField = :val')

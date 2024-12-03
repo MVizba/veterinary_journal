@@ -36,7 +36,7 @@ class Patient
     private ?string $appearance = null;
 
     #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'patients')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?Client $client = null;
 
     #[ORM\ManyToMany(targetEntity: Drug::class, mappedBy: 'patients')]

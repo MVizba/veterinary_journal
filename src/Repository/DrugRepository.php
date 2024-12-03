@@ -17,7 +17,7 @@ class DrugRepository extends ServiceEntityRepository
     }
 
     //    /**
-    //     * @return Drug[] Returns an array of Drug objects
+    //     * @return drug[] Returns an array of drug objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class DrugRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Drug
+    //    public function findOneBySomeField($value): ?drug
     //    {
     //        return $this->createQueryBuilder('d')
     //            ->andWhere('d.exampleField = :val')

@@ -26,7 +26,7 @@ class ExaminationController extends AbstractController
             $em->persist($examination);
             $em->flush();
 
-            $this->addFlash('success', 'Examination added successfully.');
+            $this->addFlash('success', 'examination added successfully.');
             return $this->redirectToRoute('dashboard');
         }
         return $this->render('examination/add.html.twig', [

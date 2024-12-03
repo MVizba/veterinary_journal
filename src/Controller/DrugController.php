@@ -26,7 +26,7 @@ class DrugController extends AbstractController
             $em->persist($drug);
             $em->flush();
 
-            $this->addFlash('success', 'Drug added successfully.');
+            $this->addFlash('success', 'drug added successfully.');
             return $this->redirectToRoute('dashboard');
         }
         return $this->render('drug/add.html.twig', [

@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Patient{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Create New Patient</h1>
+
+        <div class="card p-4 shadow">
+            {{ form_start(form) }}
+
+            <!-- Render form fields with Bootstrap grid -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    {{ form_label(form.name, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-4">
+                    {{ form_label(form.type, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-4">
+                    {{ form_label(form.gender, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.gender, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    {{ form_label(form.age, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-4">
+                    {{ form_label(form.markingNumber, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.markingNumber, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-4">
+                    {{ form_label(form.passportNumber, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.passportNumber, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_label(form.appearance, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.appearance, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <!-- Client dropdown with Add New Client button -->
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    {{ form_label(form.client, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.client, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <!-- Redirect to client creation form with redirect parameter -->
+                    <a href="{{ path('app_client_new', { redirect: 'app_patient_new' }) }}" class="btn btn-primary w-100">
+                        Add New Client
+                    </a>
+                </div>
+            </div>
+
+            <button class="btn btn-success">Save Patient</button>
+
+            {{ form_end(form) }}
+        </div>
+
+        <a href="{{ path('app_patient_index') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

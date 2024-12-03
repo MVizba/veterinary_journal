@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Client{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Edit Client</h1>
+
+        <div class="card p-4 shadow">
+            {{ include('client/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('client/_delete_form.html.twig') }}
+        </div>
+
+        <a href="{{ path('app_client_index') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}
