@@ -54,8 +54,15 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('add_drug') }}">Add Drug</a>
+                        <!-- Warehouse Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="warehouseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Warehouse
+                            </a>
+                            <ul class="dropdown-menu bg-light" aria-labelledby="warehouseDropdown">
+                                <li><a class="dropdown-item" href="{{ path('app_drug_new') }}">New</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_drug_index') }}">List</a></li>
+                            </ul>
                         </li>
                     {% endif %}
                 </ul>

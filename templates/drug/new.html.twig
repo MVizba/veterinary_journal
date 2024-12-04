@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Drug{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Create New Drug</h1>
+
+        <div class="card p-4 shadow">
+            {{ form_start(form) }}
+
+            <!-- Bootstrap grid -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_label(form.name, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(form.amount, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.amount, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_label(form.dateOfReceipt, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.dateOfReceipt, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(form.documentName, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.documentName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_label(form.manufactureDate, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.manufactureDate, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(form.expirationDate, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.expirationDate, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_label(form.series, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.series, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(form.whereObtainedFrom, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.whereObtainedFrom, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <button class="btn btn-success">Save Drug</button>
+
+            {{ form_end(form) }}
+        </div>
+
+        <a href="{{ path('app_drug_index') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Drug Details{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Drug Details</h1>
+
+        <div class="card p-4 shadow">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ drug.id }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ drug.name }}</td>
+                </tr>
+                <tr>
+                    <th>Date of Receipt</th>
+                    <td>{{ drug.dateOfReceipt ? drug.dateOfReceipt|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Document Name</th>
+                    <td>{{ drug.documentName }}</td>
+                </tr>
+                <tr>
+                    <th>Amount</th>
+                    <td>{{ drug.amount }}</td>
+                </tr>
+                <tr>
+                    <th>Manufacture Date</th>
+                    <td>{{ drug.manufactureDate ? drug.manufactureDate|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Expiration Date</th>
+                    <td>{{ drug.expirationDate ? drug.expirationDate|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Series</th>
+                    <td>{{ drug.series }}</td>
+                </tr>
+                <tr>
+                    <th>Where Obtained From</th>
+                    <td>{{ drug.whereObtainedFrom }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="{{ path('app_drug_index') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

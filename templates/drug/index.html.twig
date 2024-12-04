@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Drug Index{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Drug Index</h1>
+
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Date Of Receipt</th>
+                <th>Document Name</th>
+                <th>Amount</th>
+                <th>Manufacture Date</th>
+                <th>Expiration Date</th>
+                <th>Series</th>
+                <th>Where Obtained From</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for drug in drugs %}
+                <tr>
+                    <td>{{ drug.id }}</td>
+                    <td>{{ drug.name }}</td>
+                    <td>{{ drug.dateOfReceipt ? drug.dateOfReceipt|date('Y-m-d') : '' }}</td>
+                    <td>{{ drug.documentName }}</td>
+                    <td>{{ drug.amount }}</td>
+                    <td>{{ drug.manufactureDate ? drug.manufactureDate|date('Y-m-d') : '' }}</td>
+                    <td>{{ drug.expirationDate ? drug.expirationDate|date('Y-m-d') : '' }}</td>
+                    <td>{{ drug.series }}</td>
+                    <td>{{ drug.whereObtainedFrom }}</td>
+                    <td>
+                        <a href="{{ path('app_drug_show', {'id': drug.id}) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ path('app_drug_edit', {'id': drug.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10" class="text-center">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_drug_new') }}" class="btn btn-success mt-3">Create New</a>
+    </div>
+{% endblock %}

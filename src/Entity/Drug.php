@@ -14,6 +14,9 @@ class Drug
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
     #[ORM\Column(type: 'date')]
     private ?\DateTimeInterface $dateOfReceipt = null;
 
@@ -128,6 +131,17 @@ class Drug
     public function getPatients(): Collection
     {
         return $this->patients;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+        return $this;
     }
 
     public function addPatient(Patient $patient): static
