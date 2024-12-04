@@ -42,10 +42,18 @@
                         </ul>
                     </li>
 
+                    <!-- Examination Dropdown -->
                     {% if is_granted('ROLE_ADMIN') %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('add_examination') }}">Add Examination</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="examinationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Examination
+                            </a>
+                            <ul class="dropdown-menu bg-light" aria-labelledby="examinationDropdown">
+                                <li><a class="dropdown-item" href="{{ path('app_examination_new') }}">New</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_examination_index') }}">List</a></li>
+                            </ul>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('add_drug') }}">Add Drug</a>
                         </li>

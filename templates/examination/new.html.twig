@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Examination{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Create New Examination</h1>
+
+        <div class="card p-4 shadow">
+            {{ form_start(form) }}
+
+            <!-- Bootstrap gridas-->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    {{ form_label(form.shortcut, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.shortcut, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-8">
+                    {{ form_label(form.examinationName, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.examinationName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_label(form.norms, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.norms, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(form.machine, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.machine, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <button class="btn btn-success">Save Examination</button>
+
+            {{ form_end(form) }}
+        </div>
+
+        <a href="{{ path('app_examination_index') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

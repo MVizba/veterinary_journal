@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Examination{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Edit Examination</h1>
+
+        <!-- Formos struktura -->
+        <div class="card p-4 shadow">
+            {{ form_start(form) }}
+
+            <!-- Bootstrap struktura -->
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form_label(form.shortcut, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.shortcut, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ form_label(form.examinationName, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.examinationName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form_label(form.norms, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.norms, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ form_label(form.machine, null, {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.machine, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <!-- Save -->
+            <button class="btn btn-success">{{ button_label|default('Update') }}</button>
+            {{ form_end(form) }}
+        </div>
+
+        <!-- back to list -->
+        <div class="d-flex justify-content-between mt-3">
+            <a href="{{ path('app_examination_index') }}" class="btn btn-secondary">Back to List</a>
+            {{ include('examination/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

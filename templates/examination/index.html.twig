@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ExaminationController!{% endblock %}
+{% block title %}Examination Index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container mt-4">
+        <h1 class="mb-4">Examination List</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Shortcut</th>
+                <th>Examination Name</th>
+                <th>Norms</th>
+                <th>Machine</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for examination in examinations %}
+                <tr>
+                    <td>{{ examination.id }}</td>
+                    <td>{{ examination.shortcut }}</td>
+                    <td>{{ examination.examinationName }}</td>
+                    <td>{{ examination.norms }}</td>
+                    <td>{{ examination.machine }}</td>
+                    <td>
+                        <a href="{{ path('app_examination_show', {'id': examination.id}) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ path('app_examination_edit', {'id': examination.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6" class="text-center">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/html/src/Controller/ExaminationController.php</code></li>
-        <li>Your template at <code>/var/www/html/templates/examination/index.html.twig</code></li>
-    </ul>
-</div>
+        <a href="{{ path('app_examination_new') }}" class="btn btn-success">Create New Examination</a>
+    </div>
 {% endblock %}

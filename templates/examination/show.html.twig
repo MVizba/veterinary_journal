@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Examination Details{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Examination Details</h1>
+
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ examination.id }}</td>
+            </tr>
+            <tr>
+                <th>Shortcut</th>
+                <td>{{ examination.shortcut }}</td>
+            </tr>
+            <tr>
+                <th>Examination Name</th>
+                <td>{{ examination.examinationName }}</td>
+            </tr>
+            <tr>
+                <th>Norms</th>
+                <td>{{ examination.norms }}</td>
+            </tr>
+            <tr>
+                <th>Machine</th>
+                <td>{{ examination.machine }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between mt-3">
+            <a href="{{ path('app_examination_index') }}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+{% endblock %}
