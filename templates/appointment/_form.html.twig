@@ -1,0 +1,116 @@
+{{ form_start(form) }}
+
+<div class="row">
+    <div class="col-md-6">
+        {{ form_label(form.client) }}
+        {{ form_widget(form.client, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_label(form.patient) }}
+        {{ form_widget(form.patient, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-6">
+        {{ form_label(form.date) }}
+        {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_label(form.registrationDate) }}
+        {{ form_widget(form.registrationDate, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-6">
+        {{ form_label(form.symptomDate) }}
+        {{ form_widget(form.symptomDate, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_label(form.status) }}
+        {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        {{ form_label(form.diagnosis) }}
+        {{ form_widget(form.diagnosis, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        {{ form_label(form.services) }}
+        {{ form_widget(form.services, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        {{ form_label(form.endResult) }}
+        {{ form_widget(form.endResult, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<!-- Examinations Subforma -->
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h3>Examinations</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Examination</th>
+                <th>Date</th>
+                <th>Result</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="examinations">
+            {% for examinationForm in form.examinations %}
+                <tr>
+                    <td>{{ form_widget(examinationForm.examination, {'attr': {'class': 'form-control'}}) }}</td>
+                    <td>{{ form_widget(examinationForm.date, {'attr': {'class': 'form-control'}}) }}</td>
+                    <td>{{ form_widget(examinationForm.result, {'attr': {'class': 'form-control'}}) }}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger remove-item">Remove</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-success" id="add-examination">Add Examination</button>
+    </div>
+</div>
+
+<!-- Drugs Subforma -->
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h3>Drugs</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Drug</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="drugs">
+            {% for drugForm in form.drugs %}
+                <tr>
+                    <td>{{ form_widget(drugForm.drug, {'attr': {'class': 'form-control'}}) }}</td>
+                    <td>{{ form_widget(drugForm.amount, {'attr': {'class': 'form-control'}}) }}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger remove-item">Remove</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-success" id="add-drug">Add Drug</button>
+    </div>
+</div>
+
+<button class="btn btn-primary mt-4">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
